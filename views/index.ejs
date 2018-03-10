@@ -1,0 +1,67 @@
+<html ng-app="app.papers">
+
+<head>
+    <title>Node/Angular</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/js/lib/angular.min.js"></script>
+    <!-- ver 1.6.7 -->
+    <script src="assets/js/lib/jquery.js"></script>
+    <script src="assets/js/main/front-end/front-end.js"></script>
+
+    <script src="assets/js/main/app.js"></script>
+    <script src="assets/js/main/services/svPaper.js"></script>
+</head>
+
+<body ng-controller="paperController">
+    <br>
+    <div class="container">
+
+        <div class="row">
+            <div class="content">
+
+                <div class="box-head">
+                    <h3>S&P/ASX</h3>
+                    <ul class="list-inline sort-list pull-right">
+                        <li class="active">TOP GAINERS</li>
+                        <li>TOP LOSERS</li>
+                    </ul>
+                </div>
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="w-code">Code</th>
+                            <th class="w-company">Company</th>
+                            <th class="w-price text-center">Price</th>
+                            <th class="w-value text-right">Value</th>
+                            <th class="w-change1 text-center">Change</th>
+                            <th class="w-change2 text-center">%Change</th>
+                        </tr>
+                    </thead>
+                    <p class="text-center" ng-show="loading">
+                        <i class="fas fa-spinner fa-spin fa-3x"></i>
+                    </p>
+                    <tbody>
+                        <tr ng-repeat="paper in papers | orderBy:sortType:sortReverse">
+                            <td class="cl-blue uppercase">{{paper.Code}}</td>
+                            <td class="cl-gray uppercase">{{paper.Company}}</td>
+                            <td class="text-center text-bold">{{paper.Price}}</td>
+                            <td class="text-right text-bold">{{paper.Value}}</td>
+                            <td class="text-center" ng-class="{red: paper.Change1 < 0, green:paper.Change1 > 0}">{{paper.Change1}}</td>
+                            <td class="text-center" ng-class="{red: paper.Change2 < 0, green:paper.Change2 > 0}">{{paper.Change2}}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

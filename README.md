@@ -7,4 +7,6 @@ npm install
 
 # Run project
 nodemon app
+Go to localhost:3000
+
 

@@ -1,10 +1,10 @@
-var mysql=require('mysql');
-var connection=mysql.createPool({
- 
-host:'localhost',
- user:'root',
- password:'',
- database:'quantedge'
- 
+var mysql = require('mysql');
+var connection = mysql.createPool({
+
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'quantedge'
+
 });
-module.exports=connection;
+module.exports = connection;

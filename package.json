@@ -4,7 +4,7 @@
   "description": "Quant Edge test",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "tuanpb",
   "license": "ISC",
@@ -15,5 +15,8 @@
     "express": "^4.16.2",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2"
   }
 }

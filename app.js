@@ -51,7 +51,7 @@ function randomPrice(price) {
   // console.log(max);
   // console.log(min);
   // console.log(parseFloat(min + Math.random() * (max + 1 - min)).toFixed(2));
-  return price + Math.floor(min + Math.random() * (max + 1 - min));
+  return parseFloat(price + (min + Math.random() * (max + 1 - min))).toFixed(2);
 }
 
 updateDb = function () {
@@ -63,14 +63,14 @@ updateDb = function () {
         for (var i = 0; i < Rows.length; i++) {
           let volume = randomVolume(Rows[i].Volume);
           let price = randomPrice(Rows[i].Price);
-          connection.query("update tbl_paper set Price=?,Volume=? where ID=?", [price,volume, Rows[i].ID]);
+          connection.query("update tbl_paper set Price=?,Volume=? where ID=?", [price, volume, Rows[i].ID]);
         }
       });
     }
   });
 }
 updateDb();
-setInterval(function(){updateDb();},5000);
+setInterval(function () { updateDb(); }, 5000);
 
 var server = app.listen(3000, function () {
   console.log('Server listening on port ' + server.address().port);

@@ -6,11 +6,11 @@ app.controller("paperController", ['$scope', 'svPaper', function ($scope, svPape
 
     $scope.sortText = '';
 
-    $scope.sortGainers = function(){
+    $scope.sortGainers = function () {
         $scope.sortText = '-Value';
     }
 
-    $scope.sortLosers = function(){
+    $scope.sortLosers = function () {
         $scope.sortText = 'Value';
     }
 
@@ -27,7 +27,7 @@ app.controller("paperController", ['$scope', 'svPaper', function ($scope, svPape
     }
 
     $scope.getall();
-    setInterval(function(){$scope.getall()},1000);
+    setInterval(function () { $scope.getall() }, 1000);
 
 }]);
 

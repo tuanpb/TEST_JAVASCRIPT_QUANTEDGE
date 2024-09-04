@@ -3,7 +3,7 @@
 <head>
     <title>Node/Angular</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -26,8 +26,8 @@
                 <div class="box-head">
                     <h3>S&P/ASX</h3>
                     <ul class="list-inline sort-list pull-right">
-                        <li ng-click="sortGainers();">TOP GAINERS</li>
-                        <li ng-click="sortLosers();">TOP LOSERS</li>
+                        <li class="active">TOP GAINERS</li>
+                        <li>TOP LOSERS</li>
                     </ul>
                 </div>
                 <!-- Table -->
@@ -46,11 +46,11 @@
                         <i class="fas fa-spinner fa-spin fa-3x"></i>
                     </p>
                     <tbody>
-                        <tr ng-repeat="paper in papers | orderBy:sortText">
+                        <tr ng-repeat="paper in papers | orderBy:sortType:sortReverse">
                             <td class="cl-blue uppercase">{{paper.Code}}</td>
                             <td class="cl-gray uppercase">{{paper.Company}}</td>
                             <td class="text-center text-bold">{{paper.Price}}</td>
-                            <td class="text-right text-bold" ng-models='Value'>{{paper.Value}}</td>
+                            <td class="text-right text-bold">{{paper.Value}}</td>
                             <td class="text-center" ng-class="{red: paper.Change1 < 0, green:paper.Change1 > 0}">{{paper.Change1}}</td>
                             <td class="text-center" ng-class="{red: paper.Change2 < 0, green:paper.Change2 > 0}">{{paper.Change2}}%</td>
                         </tr>
